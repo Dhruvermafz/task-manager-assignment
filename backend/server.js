@@ -25,15 +25,12 @@ app.use(
       "http://localhost:3002",
       "https://dhruvermafz.vercel.app",
       "https://dhruvermafz.in",
-      "https://dash.dhruvermafz.in",
+      "https://task-manager-assignment-rose.vercel.app",
       // add more origins if needed in the future
     ],
     credentials: true,
   }),
 );
-
-// Serve static files (your frontend or public assets)
-app.use(express.static(path.join(__dirname, "public_html")));
 
 // ────────────────────────────────────────────────
 // API Routes
@@ -41,10 +38,6 @@ app.use(express.static(path.join(__dirname, "public_html")));
 app.use("/api/user", usersRoute);
 app.use("/api/roles", roleRoute);
 app.use("/api/tasks", taskRoute);
-// Root route → serve index.html (SPA or landing page)
-app.get("/", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public_html", "index.html"));
-});
 
 // ────────────────────────────────────────────────
 // Start Server (only after MongoDB connects)
